@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import {
   Bot,
   Pin,
@@ -34,15 +35,21 @@ export default function Sidebar({
         sidebarOpen ? 'w-64' : 'w-14'
       }`}
     >
-      <div className="h-14 flex items-center justify-between px-3">
-        <div className="flex items-center gap-2">
+      <div className="h-14 flex items-center justify-center px-3">
+        <div
+          className={cn(
+            'flex items-center',
+            sidebarOpen ? 'gap-2' : 'gap-0 justify-center'
+          )}
+        >
           <Bot className="h-5 w-5" />
           <span
-            className={`font-medium whitespace-nowrap overflow-hidden transition-all duration-300 origin-left ${
+            className={cn(
+              'font-medium whitespace-nowrap overflow-hidden transition-all duration-300 origin-left',
               sidebarOpen
                 ? 'opacity-100 translate-x-0'
-                : 'opacity-0 -translate-x-2 pointer-events-none'
-            }`}
+                : 'size-0 opacity-0 -translate-x-2 pointer-events-none'
+            )}
           >
             Right Message Stream
           </span>
