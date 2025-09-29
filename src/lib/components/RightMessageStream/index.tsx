@@ -134,8 +134,8 @@ export default function RightMessageStream() {
     };
   }
 
-  function handleSend() {
-    const q = input.trim();
+  const handleSend = (text?: string) => {
+    const q = (text || input).trim();
     if (!q) return;
     setInput('');
     setCampaignJSON('');
@@ -168,7 +168,7 @@ export default function RightMessageStream() {
       setCampaignJSON(pretty.slice(0, Math.min(i, pretty.length)));
       if (i >= pretty.length) clearInterval(t);
     }, 30);
-  }
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground flex">

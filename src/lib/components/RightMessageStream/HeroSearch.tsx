@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 
+const DemoText = 'Plan Black Friday reactivation across Email, SMS and Push';
+
 export default function HeroSearch({
   input,
   setInput,
@@ -11,8 +13,12 @@ export default function HeroSearch({
 }: {
   input: string;
   setInput: (v: string) => void;
-  onSend: () => void;
+  onSend: (text?: string) => void;
 }) {
+  const handleQuickDemo = () => {
+    setInput(DemoText);
+    setTimeout(() => onSend(DemoText), 1000);
+  };
   return (
     <div className="py-10 md:py-14 text-center">
       <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
@@ -32,15 +38,24 @@ export default function HeroSearch({
               if (e.key === 'Enter' && !e.shiftKey) onSend();
             }}
           />
-          <Button onClick={onSend} className="ml-auto">
+          <Button
+            onClick={() => onSend()}
+            className="ml-auto cursor-pointer"
+            disabled={!input.trim()}
+          >
             Send
           </Button>
         </div>
       </div>
       <div className="mt-4 flex gap-2 justify-center flex-wrap">
-        <span className="text-xs text-muted-foreground">
-          Try: "Plan Black Friday reactivation across Email, SMS and Push"
-        </span>
+        <Button
+          variant="link"
+          size="sm"
+          onClick={handleQuickDemo}
+          className="text-xs text-muted-foreground hover:text-foreground p-0 h-auto cursor-pointer"
+        >
+          Try "{DemoText}"
+        </Button>
       </div>
     </div>
   );
