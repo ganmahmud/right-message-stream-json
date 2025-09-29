@@ -90,25 +90,88 @@ export default function Sidebar({
 
       <div className="mt-4 px-3">
         {sidebarOpen && (
-          <p className="text-xs uppercase text-muted-foreground mb-2">
+          <p className="text-xs uppercase text-muted-foreground mb-2 transition-opacity duration-300">
             Quick actions
           </p>
         )}
         <div className="flex flex-col gap-2">
-          <Button variant="secondary" className="justify-center">
-            {sidebarOpen ? (
-              <span className="inline-flex items-center gap-2">
-                <Plus className="h-4 w-4" /> New Campaign
-              </span>
-            ) : (
-              '+'
+          <Button
+            variant="secondary"
+            className={cn(
+              'transition-all duration-300',
+              sidebarOpen ? 'justify-start' : 'justify-center'
             )}
+          >
+            <span
+              className={cn(
+                'inline-flex items-center transition-all duration-300',
+                sidebarOpen ? 'gap-2 opacity-100' : 'gap-0 opacity-100'
+              )}
+            >
+              <Plus className="h-4 w-4 transition-all duration-300" />
+              <span
+                className={cn(
+                  'whitespace-nowrap overflow-hidden transition-all duration-300 origin-left',
+                  sidebarOpen
+                    ? 'opacity-100 translate-x-0 w-auto'
+                    : 'w-0 opacity-0 -translate-x-2'
+                )}
+              >
+                New Campaign
+              </span>
+            </span>
           </Button>
-          <Button variant="secondary" className="justify-center">
-            {sidebarOpen ? 'Connect Shopify' : 'S'}
+
+          <Button
+            variant="secondary"
+            className={cn(
+              'transition-all duration-300',
+              sidebarOpen ? 'justify-start' : 'justify-center'
+            )}
+          >
+            <span
+              className={cn(
+                'inline-flex items-center transition-all duration-300'
+              )}
+            >
+              <span className="text-sm font-medium">S</span>
+              <span
+                className={cn(
+                  'whitespace-nowrap overflow-hidden transition-all duration-300 origin-left',
+                  sidebarOpen
+                    ? 'opacity-100 translate-x-0 w-auto'
+                    : 'w-0 opacity-0 -translate-x-2'
+                )}
+              >
+                hopify Connect
+              </span>
+            </span>
           </Button>
-          <Button variant="secondary" className="justify-center">
-            {sidebarOpen ? 'Import Audiences' : 'A'}
+
+          <Button
+            variant="secondary"
+            className={cn(
+              'transition-all duration-300',
+              sidebarOpen ? 'justify-start' : 'justify-center'
+            )}
+          >
+            <span
+              className={cn(
+                'inline-flex items-center transition-all duration-300'
+              )}
+            >
+              <span className="text-sm font-medium">A</span>
+              <span
+                className={cn(
+                  'whitespace-nowrap overflow-hidden transition-all duration-300 origin-left',
+                  sidebarOpen
+                    ? 'opacity-100 translate-x-0 w-auto'
+                    : 'w-0 opacity-0 -translate-x-2'
+                )}
+              >
+                udiences Import
+              </span>
+            </span>
           </Button>
         </div>
       </div>
