@@ -19,9 +19,6 @@ export default function StatusCard({
       <CardContent className="text-sm space-y-2">
         <div>Sources connected: {sourcesCount}</div>
         <div>Channels active: {channelsCount}</div>
-        <div className="text-muted-foreground">
-          Pinned sidebar: {pinned ? 'Yes' : 'No'}
-        </div>
       </CardContent>
     </Card>
   );

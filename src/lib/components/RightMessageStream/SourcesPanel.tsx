@@ -34,6 +34,7 @@ export default function SourcesPanel({
                 </div>
               </div>
               <Button
+                className="cursor-pointer"
                 size="sm"
                 variant={sources[k] ? 'secondary' : 'default'}
                 onClick={() => toggleSource(k)}
