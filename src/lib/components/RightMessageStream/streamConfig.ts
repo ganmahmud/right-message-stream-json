@@ -6,8 +6,9 @@ import {
   Smartphone,
   Bell,
   Database,
-  LucideIcon,
 } from 'lucide-react';
+
+import type { LucideIcon } from 'lucide-react';
 
 export type SourceKey = 'shopify' | 'google_ads' | 'facebook_page';
 export type ChannelKey = 'email' | 'sms' | 'whatsapp' | 'push';
