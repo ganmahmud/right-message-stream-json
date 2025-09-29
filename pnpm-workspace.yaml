@@ -1,0 +1,7 @@
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - '@tsparticles/engine'
+  - bcrypt
+  - esbuild
+  - sharp
+  - unrs-resolver
